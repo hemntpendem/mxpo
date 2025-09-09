@@ -2,8 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast"; 
-import GenreList from "@/app/components/GenreList";
+import { toast } from "react-hot-toast";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+// 🔹 Lazy load GenreList
+const GenreList = dynamic(() => import("@/app/components/GenreList"), {
+  ssr: false, // optional: don't render on server
+  loading: () => <p style={{ color: "#fff" }}>Loading genre...</p>, // fallback
+});
 
 const GENRES = [
   { id: 28, name: "Action" },
@@ -24,7 +31,6 @@ export default function GenrePage() {
   const [loadingGenres, setLoadingGenres] = useState({});
   const [error, setError] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const goToMovie = (genreId, movie) => {
     if (!movie?.id) return;
@@ -85,6 +91,7 @@ export default function GenrePage() {
 
   return (
     <div className="genre-page">
+      {/* Dropdown UI */}
       <div
         className="genre-header"
         style={{
@@ -95,53 +102,38 @@ export default function GenrePage() {
         }}
       >
         <h1 className="page-title" style={{ color: "#fff" }}>Genres</h1>
-        <div style={{ position: "relative", display: "inline-block" }}>
-         
-         
-         <select
-  value={selectedGenre || ""}
-  onChange={(e) => setSelectedGenre(e.target.value)}
-  style={{
-    padding: "10px 40px 10px 14px", // text padding left, arrow on right
-    border: "1px solid #444",
-    borderRadius: "8px",
-    backgroundColor: "#1f1f1f",
-    color: "#fff",
-    fontSize: "15px",
-    fontWeight: "500",
-    cursor: "pointer",
-    outline: "none",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-    transition: "all 0.2s ease",
-    appearance: "none",
-    WebkitAppearance: "none",
-    MozAppearance: "none",
-    backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23fff' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "right 12px center", // space on right for arrow
-    backgroundSize: "12px",
-  }}
->
-  <option value="">All</option>
-  {GENRES.map((genre) => (
-    <option
-      key={genre.id}
-      value={genre.name}
-      style={{
-        backgroundColor: "#1f1f1f",
-        color: "#fff",
-        padding: "10px",
-      }}
-    >
-      {genre.name}
-    </option>
-  ))}
-</select>
-
-
-        </div>
+        <select
+          value={selectedGenre || ""}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+          style={{
+            padding: "10px 40px 10px 14px",
+            border: "1px solid #444",
+            borderRadius: "8px",
+            backgroundColor: "#1f1f1f",
+            color: "#fff",
+            fontSize: "15px",
+            fontWeight: "500",
+            cursor: "pointer",
+            outline: "none",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+            transition: "all 0.2s ease",
+            appearance: "none",
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23fff' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 12px center",
+            backgroundSize: "12px",
+          }}
+        >
+          <option value="">All</option>
+          {GENRES.map((genre) => (
+            <option key={genre.id} value={genre.name}>
+              {genre.name}
+            </option>
+          ))}
+        </select>
       </div>
 
+      {/* Render either a single GenreList (filtered) or all genres */}
       {selectedGenre ? (
         <GenreList
           genre={GENRES.find((g) => g.name === selectedGenre)}
@@ -165,7 +157,7 @@ export default function GenrePage() {
                     ))
                   : movies[genre.name].map((movie) => (
                       <div key={movie.id} className="genre-movie-card">
-                        <img
+                        <Image
                           src={
                             movie.poster_path
                               ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
@@ -175,6 +167,7 @@ export default function GenrePage() {
                           alt={movie.title || "Untitled"}
                           className="genre-movie-poster"
                           loading="lazy"
+                          fill
                         />
                         <button
                           className="genre-add-btn"

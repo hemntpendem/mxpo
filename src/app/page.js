@@ -1,9 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Carousel from "./components/Carousel";
+import dynamic from "next/dynamic";
 import VerticalGrid from "./components/MultiGenreCarousel"; // adjust path if needed
 import ProfileSetupPopup from "@/app/components/ProfileSetupPopup";
+
+// ✅ Dynamic import for HomeCarousel (no SSR)
+const HomeCarousel = dynamic(() => import("./components/HomeCarousel"), {
+  ssr: false,
+  loading: () => <div className="loading">Loading carousel...</div>,
+});
 
 export default function HomePage() {
   const [showPopup, setShowPopup] = useState(false);
@@ -25,7 +31,7 @@ export default function HomePage() {
   return (
     <main className="homepage">
       {showPopup && <ProfileSetupPopup onSubmit={handleProfileSubmit} />}
-      <Carousel />
+      <HomeCarousel /> {/* ✅ swapped Carousel with your HomeCarousel */}
       <VerticalGrid />
     </main>
   );

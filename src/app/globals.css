@@ -341,16 +341,19 @@ a {
   margin-left: 5rem;
 }
 
-/* Poster image */
+
+
 .movie-poster {
-  width: 100%;      
-  height: 100%;     
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-   aspect-ratio: 2 / 3;
-   background-color: #333;
+  aspect-ratio: 2 / 3;
+  background-color: #333;
 }
+
+
 
 .poster-buttons {
   display: flex;
@@ -405,6 +408,7 @@ a {
 .movie-title {
   font-size: 4rem;
   margin-bottom: 1.5rem;
+  margin-top: 2rem;
   line-height: 1;
 }
 
@@ -481,11 +485,13 @@ a {
     width: 400px;
     margin-top: 1rem;
     margin-left: 0;
+    margin-top: 3rem;
   }
 
   .movie-title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    
   }
 
   .movie-overview,
@@ -524,6 +530,7 @@ a {
   .movie-content {
     width: 350px;
     margin-left: 0;
+    margin-top: 3rem;
   }
 
   .movie-title {
@@ -556,6 +563,21 @@ a {
 }
 
 /* Grid for list items and search results */
+.poster-wrapper {
+  position: relative;          /* required for fill */
+  width: 100%;
+  aspect-ratio: 2 / 3;         /* height auto-calculated */
+  border-radius: 10px;
+  overflow: hidden;            /* clip overflow for rounded corners */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  background-color: #333;
+}
+
+.searchmovie-poster {
+  object-fit: cover;           /* fills parent nicely */
+}
+
+
 .list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px); 
@@ -570,6 +592,12 @@ a {
   cursor: pointer;
   position: relative;
   transition: transform 0.25s ease;
+  width: 100%;
+  aspect-ratio: 2 / 3;         /* height auto-calculated */
+  border-radius: 10px;
+  overflow: hidden;            /* clip overflow for rounded corners */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  background-color: #333;
 }
 
 .list-card:hover {
@@ -577,11 +605,9 @@ a {
 }
 
 .list-img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  object-fit: cover;
+  object-fit: cover;           /* image fills the wrapper nicely */
 }
+
 
 .list-title {
   margin-top: 6px;
@@ -632,6 +658,7 @@ a {
   .list-title {
     font-size: 0.8rem;
   }
+ 
 }
 
 @media (max-width: 768px) {
@@ -646,6 +673,7 @@ a {
   .list-title {
     font-size: 0.8rem;
   }
+  
 }
 
 /* Search Page css */

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function GenreList({ genre, movies, addToList, goToMovie }) {
   if (!movies || movies.length === 0) {
@@ -18,7 +18,7 @@ export default function GenreList({ genre, movies, addToList, goToMovie }) {
             className="list-card"
             onClick={() => goToMovie(genre.id, movie)}
           >
-            <img
+            <Image
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
@@ -26,6 +26,7 @@ export default function GenreList({ genre, movies, addToList, goToMovie }) {
               }
               alt={movie.title || "Untitled"}
               className="list-img"
+              fill
             />
             <h3 className="list-title">{movie.title || movie.name}</h3>
             <button

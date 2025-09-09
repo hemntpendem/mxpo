@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast"; 
+import { toast } from "react-hot-toast";
+import Image from "next/image";
 
-// 5 main genres
 const GENRES = [
   { id: 28, name: "Action" },
   { id: 12, name: "Adventure" },
@@ -20,7 +20,6 @@ export default function MultiGenreCarousel() {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        // Fetching all 5 genres in parallel - only 5 requests
         const results = await Promise.all(
           GENRES.map(async (genre) => {
             const res = await fetch(
@@ -31,7 +30,6 @@ export default function MultiGenreCarousel() {
           })
         );
 
-        // Build dictionary of genreId → movies
         const mapped = {};
         results.forEach(({ id, items }) => {
           mapped[id] = items;
@@ -51,7 +49,6 @@ export default function MultiGenreCarousel() {
         <GenreRow
           key={genre.id}
           genreName={genre.name}
-          genreId={genre.id}
           items={genreItems[genre.id] || []}
         />
       ))}
@@ -59,7 +56,7 @@ export default function MultiGenreCarousel() {
   );
 }
 
-function GenreRow({ genreName, genreId, items }) {
+function GenreRow({ genreName, items }) {
   const router = useRouter();
 
   const handleMovieClick = (movie) => {
@@ -84,16 +81,22 @@ function GenreRow({ genreName, genreId, items }) {
     <div className="genre-section">
       <h2 className="genre-title">{genreName}</h2>
       <div className="genre-scroll-container">
-      {/* Mapping Movie posters and Details thru Tmdb API */}
         {items.length > 0 ? (
           items.map((movie, index) => (
-            <div key={index} className="genre-movie-card">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title || movie.name}
-                className="genre-movie-poster"
-                onClick={() => handleMovieClick(movie)}
-              />
+            <div
+              key={index}
+              className="genre-movie-card"
+              onClick={() => handleMovieClick(movie)}
+            >
+              {/* 👇 wrapper div is required for fill */}
+              <div className="poster-wrapper">
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title || movie.name}
+                  className="genre-movie-poster"
+                  fill
+                />
+              </div>
               <button
                 className="genre-add-btn"
                 onClick={(e) => {
@@ -106,8 +109,7 @@ function GenreRow({ genreName, genreId, items }) {
             </div>
           ))
         ) : (
-          
-          <div className="loading-text">Loading...</div> 
+          <div className="loading-text">Loading...</div>
         )}
       </div>
     </div>

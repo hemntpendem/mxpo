@@ -121,6 +121,7 @@ export default function MovieDetail({ movieId }) {
           src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path || ""}`}
           alt={movie?.title || ""}
           style={{ display: "none" }}
+          fill
         />
       </div>
 
@@ -134,6 +135,7 @@ export default function MovieDetail({ movieId }) {
           }
           alt={movie?.title || ""}
           className="movie-poster"
+          priority={true}
         />
         <div className="poster-buttons">
           <button className="btn trailer-btn" onClick={handlePlayTrailer}>

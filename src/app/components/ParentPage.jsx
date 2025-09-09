@@ -1,10 +1,7 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import ProfileSetupPopup from "@/app/components/ProfileSetupPopup";
-import MyProfile from "@/app/components/MyProfile";
+import { usePathname } from "next/navigation";
 
 export default function ParentPage() {
+  const pathname = usePathname(); // current URL
   const [user, setUser] = useState(null); 
   const [showPopup, setShowPopup] = useState(true);
 
@@ -24,7 +21,11 @@ export default function ParentPage() {
 
   return (
     <>
-      {showPopup && <ProfileSetupPopup onSubmit={handleProfileSubmit} />}
+      {/* Only show popup on homepage */}
+      {pathname === "/" && showPopup && (
+        <ProfileSetupPopup onSubmit={handleProfileSubmit} />
+      )}
+
       {user && <MyProfile user={user} />}
     </>
   );

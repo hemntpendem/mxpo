@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-// Search Page Component
+import dynamic from "next/dynamic";
+
+// ✅ Dynamically import Next/Image
+const Image = dynamic(() => import("next/image"), { ssr: false });
+
 export default function SearchPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -43,7 +47,6 @@ export default function SearchPage() {
       const newResults = data.results || [];
       setResults(newResults);
 
-      // Save search to sessionStorage
       sessionStorage.setItem("searchQuery", query.trim());
       sessionStorage.setItem("searchResults", JSON.stringify(newResults));
     } catch (err) {
@@ -92,13 +95,16 @@ export default function SearchPage() {
               className="list-card"
               onClick={() => goToMovieDetail(movie)}
             >
-              {posterUrl && (
-                <img
-                  src={posterUrl}
-                  alt={movie.title || "Untitled"}
-                  className="movie-poster"
-                />
-              )}
+              
+  {posterUrl && (
+    <Image
+      src={posterUrl}
+      alt={movie.title || "Untitled"}
+      className="searchmovie-poster"
+      fill
+    />
+  )}
+
               <h3 className="list-title">{movie.title || "Untitled"}</h3>
             </div>
           );

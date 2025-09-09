@@ -3,13 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-hot-toast"; 
+import Image from "next/image";
 
 const API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`;
 const IMAGE_BASE = "https://image.tmdb.org/t/p/original";
 
-// Homepage Hero  Carousel Componnet 
-
-export default function HomeCarousel() {
+// Homepage Hero Carousel Component
+function HomeCarousel() {
   const router = useRouter();
   const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(1);
@@ -39,7 +39,7 @@ export default function HomeCarousel() {
 
         // Preload images
         movieSlides.forEach((slide) => {
-          const img = new Image();
+          const img = new window.Image();
           img.src = slide.backdrop;
         });
       } catch (err) {
@@ -127,7 +127,13 @@ export default function HomeCarousel() {
         >
           {allSlides.map((slide, index) => (
             <div key={index} className="carousel-slide" onClick={() => handleClick(slide)}>
-              <img src={slide.backdrop} alt={slide.title} className="carousel-img" />
+              <Image
+                src={slide.backdrop}
+                alt={slide.title}
+                className="carousel-img"
+                fill
+                priority={index === 1}
+              />
               <div className="carousel-overlay">
                 <h2 className="carousel-title">{slide.title}</h2>
                 <p className="carousel-info">
@@ -162,3 +168,5 @@ export default function HomeCarousel() {
     </section>
   );
 }
+
+export default HomeCarousel;
