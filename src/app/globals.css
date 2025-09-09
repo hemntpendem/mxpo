@@ -614,7 +614,8 @@ a {
   text-align: center;
   font-size: 1rem;
   color: #999;
-  margin-top: 60px;
+  padding-top: 100px;
+  min-height: 90vh;
 }
 
 /* Responsive adjustments */
