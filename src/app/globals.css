@@ -615,7 +615,7 @@ a {
   font-size: 1rem;
   color: #999;
   padding-top: 100px;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 /* Responsive adjustments */
