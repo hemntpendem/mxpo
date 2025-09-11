@@ -1,4 +1,9 @@
+"use client";
 import { usePathname } from "next/navigation";
+import { useState,useEffect } from "react";
+
+import ProfileSetupPopup from "@/app/components/ProfileSetupPopup";
+import MyProfile from "@/app/components/MyProfile"
 
 export default function ParentPage() {
   const pathname = usePathname(); // current URL
