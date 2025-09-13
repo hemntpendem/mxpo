@@ -1,4 +1,4 @@
-<img width="597" height="1280" alt="image" src="https://github.com/user-attachments/assets/75fb4cd2-61a8-407e-989c-41f27b7a5449" /><img width="597" height="1280" alt="image" src="https://github.com/user-attachments/assets/48e232e6-217e-418c-a281-0c0d8080fe0e" /># MXPO – Movie Explorer Web App  
+# MXPO – Movie Explorer Web App  
 *A responsive Next.js + Tailwind project to explore, search, and save your favorite movies.*
 
 MXPO is a sleek movie exploration website that delivers detailed information about movies, including titles, genres, cast, ratings, release dates, and trailers.  
@@ -111,6 +111,9 @@ mxpo/
 ---
 
 ## Screenshots
+
+See MXPO in action across devices – explore, search, and save your favorite movies!
+
 ## On Desktop
 ![homepage](https://github.com/user-attachments/assets/8f980a8e-d2a1-4a2e-be8f-f60e9c8cf550)
 
@@ -127,17 +130,18 @@ mxpo/
 ![trailer modal](https://github.com/user-attachments/assets/ab2831ef-6751-429e-b8e3-db5cda16f754)
 
 ---
-
 ## On Mobile
-![homepage](https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44)
 
-![genre page](https://github.com/user-attachments/assets/ac5ed966-5b46-49b1-beee-7aeabd5788dc)
+<img src="https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44" alt="Home Page" width="250">
 
-![mylist page](https://github.com/user-attachments/assets/125f67e2-5929-4a1e-9f6b-da0269310e15)
+<img src="https://github.com/user-attachments/assets/ac5ed966-5b46-49b1-beee-7aeabd5788dc" alt="Genre Page" width="250">
 
-![search page](https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b)
+<img src="https://github.com/user-attachments/assets/125f67e2-5929-4a1e-9f6b-da0269310e15" alt="My List Page" width="250">
 
-![profile page](https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a)
+<img src="https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b" alt="Search Page" width="250">
 
-![trailer modal](https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4)
+<img src="https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a" alt="Profile Page" width="250">
+
+<img src="https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4" alt="Trailer Modal" width="250">
+
 
