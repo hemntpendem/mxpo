@@ -63,7 +63,8 @@ pnpm dev
 http://localhost:3000
 ```
 ---
-#Project Srtucture
+
+## Project Structure
 
 ```
 mxpo/
@@ -83,7 +84,7 @@ mxpo/
 ```
 ---
 
-#Learnings & Challenges
+## Learnings & Challenges
 
 - Mastered Next.js App Router for dynamic navigation.
 
@@ -97,8 +98,7 @@ mxpo/
 
 ---
 
-#Contributions and Suggestions are always welcome
-
+## Contributions and Suggestions are always welcome
 
 - Fork the repo
 
