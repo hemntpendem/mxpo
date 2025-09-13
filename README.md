@@ -132,16 +132,16 @@ See MXPO in action across devices – explore, search, and save your favorite mo
 ---
 ## On Mobile
 
-<img src="https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44" alt="Home Page" width="250">
+<img src="https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44" alt="Home Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/ac5ed966-5b46-49b1-beee-7aeabd5788dc" alt="Genre Page" width="250">
+<img src="https://github.com/user-attachments/assets/ac5ed966-5b46-49b1-beee-7aeabd5788dc" alt="Genre Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/125f67e2-5929-4a1e-9f6b-da0269310e15" alt="My List Page" width="250">
+<img src="https://github.com/user-attachments/assets/125f67e2-5929-4a1e-9f6b-da0269310e15" alt="My List Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b" alt="Search Page" width="250">
+<img src="https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b" alt="Search Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a" alt="Profile Page" width="250">
+<img src="https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a" alt="Profile Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4" alt="Trailer Modal" width="250">
+<img src="https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4" alt="Trailer Modal" width="300">
 
 
