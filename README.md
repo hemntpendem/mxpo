@@ -85,15 +85,15 @@ mxpo/
 
 #Learnings & Challenges
 
-Mastered Next.js App Router for dynamic navigation.
+- Mastered Next.js App Router for dynamic navigation.
 
-Implemented API integration to fetch and display real-time movie data.
+- Implemented API integration to fetch and display real-time movie data.
 
-Used TailwindCSS for fast, responsive design across devices.
+- Used TailwindCSS for fast, responsive design across devices.
 
-Built a persistent Add to List feature for saved movies.
+- Built a persistent Add to List feature for saved movies.
 
-Improved state management and routing in a real-world project scenario.
+- Improved state management and routing in a real-world project scenario.
 
 ---
 
