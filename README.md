@@ -1,4 +1,4 @@
-# MXPO – Movie Explorer Web App  
+<img width="597" height="1280" alt="image" src="https://github.com/user-attachments/assets/75fb4cd2-61a8-407e-989c-41f27b7a5449" /><img width="597" height="1280" alt="image" src="https://github.com/user-attachments/assets/48e232e6-217e-418c-a281-0c0d8080fe0e" /># MXPO – Movie Explorer Web App  
 *A responsive Next.js + Tailwind project to explore, search, and save your favorite movies.*
 
 MXPO is a sleek movie exploration website that delivers detailed information about movies, including titles, genres, cast, ratings, release dates, and trailers.  
@@ -104,12 +104,40 @@ mxpo/
 
 - Create a branch (feature/your-feature)
 
+- Commit your changes
+
+- Push & open a PR
+
 ---
 
 ## Screenshots
 ## On Desktop
-![homepage]()
+![homepage](https://github.com/user-attachments/assets/8f980a8e-d2a1-4a2e-be8f-f60e9c8cf550)
 
-- Commit your changes
+![Genre page](https://github.com/user-attachments/assets/fd5336f3-8165-442f-b52a-416a4bc56b4c)
 
-- Push & open a PR
+![mylist page](https://github.com/user-attachments/assets/4efba517-0eca-49b3-9cfb-e83066d13507)
+
+![search page](https://github.com/user-attachments/assets/d3980729-cf37-4ed6-a235-85495e6089a2)
+
+![moviedetail page](https://github.com/user-attachments/assets/ccea54d1-ea98-4421-82bb-6d4ca5cb31a4)
+
+![profile page](https://github.com/user-attachments/assets/f308e61e-90a4-48dc-8102-77faa1f79f68)
+
+![trailer modal](https://github.com/user-attachments/assets/ab2831ef-6751-429e-b8e3-db5cda16f754)
+
+---
+
+## On Mobile
+![homepage](https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44)
+
+![genre page](https://github.com/user-attachments/assets/ac5ed966-5b46-49b1-beee-7aeabd5788dc)
+
+![mylist page](https://github.com/user-attachments/assets/125f67e2-5929-4a1e-9f6b-da0269310e15)
+
+![search page](https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b)
+
+![profile page](https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a)
+
+![trailer modal](https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4)
+
