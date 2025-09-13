@@ -562,13 +562,13 @@ a {
   color: #fff;
 }
 
-/* Grid for list items and search results */
+
 .poster-wrapper {
   position: relative;          /* required for fill */
   width: 100%;
-  aspect-ratio: 2 / 3;         /* height auto-calculated */
+  aspect-ratio: 2 / 3;         
   border-radius: 10px;
-  overflow: hidden;            /* clip overflow for rounded corners */
+  overflow: hidden;            
   box-shadow: 0 10px 20px rgba(0,0,0,0.6);
   background-color: #333;
 }
@@ -607,15 +607,33 @@ a {
 .list-img {
   object-fit: cover;           /* image fills the wrapper nicely */
 }
+/* 
+.image-container{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
 
-
+.post-title{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: whitesmoke;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+} */
+/* 
 .list-title {
-  margin-top: 6px;
+  margin-bottom: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   text-align: center;
   color: #fff;
-}
+} */
+
 
 .remove-btn {
   position: absolute;
@@ -1104,16 +1122,17 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.7); 
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: 1rem; /* mobile padding */
+  padding: 1rem; 
 }
 
 .popup {
-  background-color: #111; /* dark Netflix-style */
+  position: relative;
+  background-color: #111; 
   color: #fff;
   padding: 2rem;
   border-radius: 16px;
@@ -1143,7 +1162,7 @@ a {
   color: #fff;
 }
 
-.popup button {
+.popup-save{
   width: 100%;
   padding: 0.8rem;
   background-color: #e50914; 
@@ -1155,8 +1174,17 @@ a {
   transition: background-color 0.2s;
 }
 
-.popup button:hover {
+.popup-save:hover {
   background-color: #f6121d;
+}
+
+.popup-close{
+  position: absolute;
+  background-color:transparent;
+  top: 10px;
+  right: 20px;
+
+  
 }
 
 /* Fade-in animation */

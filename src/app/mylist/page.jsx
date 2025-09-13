@@ -54,6 +54,7 @@ export default function MyListPage() {
             <div key={movie.id} className="list-card" onClick={() => goToMovie(movie)}>
               
   {posterUrl && (
+    
     <Image
       src={posterUrl}
       alt={movie.title || "Untitled"}

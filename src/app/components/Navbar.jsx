@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Reusable Navbar
+// Navbar
 export default function Navbar() {
   const pathname = usePathname();
 

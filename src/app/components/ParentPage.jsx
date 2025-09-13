@@ -6,7 +6,7 @@ import ProfileSetupPopup from "@/app/components/ProfileSetupPopup";
 import MyProfile from "@/app/components/MyProfile"
 
 export default function ParentPage() {
-  const pathname = usePathname(); // current URL
+  const pathname = usePathname(); 
   const [user, setUser] = useState(null); 
   const [showPopup, setShowPopup] = useState(true);
 

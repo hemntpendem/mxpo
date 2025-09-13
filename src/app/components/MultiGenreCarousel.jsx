@@ -88,7 +88,7 @@ function GenreRow({ genreName, items }) {
               className="genre-movie-card"
               onClick={() => handleMovieClick(movie)}
             >
-              {/* 👇 wrapper div is required for fill */}
+              
               <div className="poster-wrapper">
                 <Image
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

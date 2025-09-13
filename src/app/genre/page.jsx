@@ -8,8 +8,8 @@ import Image from "next/image";
 
 // 🔹 Lazy load GenreList
 const GenreList = dynamic(() => import("@/app/components/GenreList"), {
-  ssr: false, // optional: don't render on server
-  loading: () => <p style={{ color: "#fff" }}>Loading genre...</p>, // fallback
+  ssr: false, 
+  loading: () => <p style={{ color: "#fff" }}>Loading genre...</p>, 
 });
 
 const GENRES = [

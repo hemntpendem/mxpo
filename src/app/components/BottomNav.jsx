@@ -11,7 +11,7 @@ import {
   UserIcon 
 } from "@heroicons/react/24/outline";
 
-// Resusable mobile bottom navbar   
+// mobile bottom navbar   
 export default function BottomNav() {
   const pathname = usePathname();
 

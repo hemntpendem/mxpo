@@ -6,7 +6,7 @@ export default function ProfileSetupPopup({ onSubmit }) {
   const pathname = usePathname();
   const [showPopup, setShowPopup] = useState(true);
 
-  // Only show on homepage
+  // Only appears on homepage
   if (pathname !== "/" || !showPopup) return null;
 
   const [username, setUsername] = useState("");
@@ -28,15 +28,6 @@ export default function ProfileSetupPopup({ onSubmit }) {
           type="button" 
           className="popup-close" 
           onClick={() => setShowPopup(false)}
-          style={{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            background: "transparent",
-            border: "none",
-            fontSize: "1.5rem",
-            cursor: "pointer"
-          }}
         >
           ✖
         </button>
@@ -50,7 +41,7 @@ export default function ProfileSetupPopup({ onSubmit }) {
             <option value="standard">Standard</option>
             <option value="premium">Premium</option>
           </select>
-          <button type="submit">Save Profile</button>
+          <button type="submit" className="popup-save">Save Profile</button>
         </form>
       </div>
     </div>

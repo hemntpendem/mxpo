@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-// ✅ Dynamically import Next/Image
+
 const Image = dynamic(() => import("next/image"), { ssr: false });
 
 export default function SearchPage() {
