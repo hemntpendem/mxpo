@@ -65,7 +65,7 @@ http://localhost:3000
 ---
 #Project Srtucture
 
-
+```
 mxpo/
 ├── public/              # Static assets (icons, posters, trailers, etc.)
 ├── src/                 
@@ -80,7 +80,7 @@ mxpo/
 ├── postcss.config.mjs
 ├── tailwind.config.js
 └── README.md
-
+```
 ---
 
 #Learnings & Challenges
@@ -100,10 +100,10 @@ mxpo/
 #Contributions and Suggestions are always welcome
 
 
-Fork the repo
+- Fork the repo
 
-Create a branch (feature/your-feature)
+- Create a branch (feature/your-feature)
 
-Commit your changes
+- Commit your changes
 
-Push & open a PR
+- Push & open a PR
