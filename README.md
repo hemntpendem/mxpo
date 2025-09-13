@@ -104,6 +104,12 @@ mxpo/
 
 - Create a branch (feature/your-feature)
 
+---
+
+## Screenshots
+## On Desktop
+![homepage]()
+
 - Commit your changes
 
 - Push & open a PR
