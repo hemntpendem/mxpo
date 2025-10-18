@@ -106,23 +106,24 @@ export default function GenrePage() {
           value={selectedGenre || ""}
           onChange={(e) => setSelectedGenre(e.target.value)}
           style={{
-            padding: "10px 40px 10px 14px",
-            border: "1px solid #444",
-            borderRadius: "8px",
-            backgroundColor: "#1f1f1f",
-            color: "#fff",
-            fontSize: "15px",
-            fontWeight: "500",
-            cursor: "pointer",
-            outline: "none",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-            transition: "all 0.2s ease",
-            appearance: "none",
-            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23fff' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 12px center",
-            backgroundSize: "12px",
-          }}
+  padding: "10px 40px 10px 14px",
+  border: "none",
+  borderRadius: "10px",
+  backgroundColor: "#1c1c1c",
+  color: "#f5f5f5",
+  fontSize: "15px",
+  fontWeight: "500",
+  cursor: "pointer",
+  outline: "none",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
+  transition: "all 0.2s ease",
+  appearance: "none",
+  backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23aaa' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "right 12px center",
+  backgroundSize: "12px",
+}}
+
         >
           <option value="">All</option>
           {GENRES.map((genre) => (

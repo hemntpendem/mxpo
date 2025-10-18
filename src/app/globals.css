@@ -229,7 +229,12 @@ a {
   transition: all 0.2s ease;
 }
 
-.btn-view {
+.btn-view{
+   background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+}
+
+.btn-view:hover {
   background-color: #ff0000;
   color: white;
 }
@@ -633,7 +638,7 @@ a {
   text-align: center;
   color: #fff;
 } */
-
+/* 
 
 .remove-btn {
   position: absolute;
@@ -647,6 +652,21 @@ a {
   font-size: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s;
+} */
+.remove-btn{
+ position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 2;
 }
 
 .remove-btn:hover {
@@ -818,6 +838,7 @@ a {
 }
 .genre-section {
   margin-bottom: 2.5rem;
+  margin-left:0;
 }
 
 .genre-title {
@@ -987,8 +1008,7 @@ a {
 }
 
 .genre-add-btn:hover {
-  background-color: rgba(255, 59, 63, 1);
-  transform: scale(1.05);
+   background-color: #b00710;
 }
 
 /* Loading text */
@@ -1401,4 +1421,343 @@ a {
   align-items: center;
 }
 
+/* ProfileSetupPopup styles */
+/* ---------- Popup Backdrop ---------- */
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
 
+/* ---------- Popup Form ---------- */
+.popup-form {
+  background: #141414; /* dark Netflix vibe */
+  color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ---------- Popup Heading ---------- */
+.popup-form h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* ---------- Input Fields ---------- */
+.popup-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.popup-form input::placeholder {
+  color: #aaa;
+}
+
+/* ---------- Buttons ---------- */
+.popup-form button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #e50914; /* Netflix red */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popup-form button:hover {
+  background: #f6121d;
+}
+
+.popup-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Google Button ---------- */
+.google-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.google-btn:hover {
+  background: #fff;
+  color: #141414;
+}
+
+/* ---------- Divider ---------- */
+.popup-form div {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+/* ---------- Profile Page Container ---------- */
+.profile-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+/* ---------- Titles ---------- */
+.profile-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.profile-subtitle {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ---------- Membership Card ---------- */
+.membership-card {
+  background: #141414; /* dark Netflix vibe */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.member-since {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.email {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.manage-btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.manage-btn:hover {
+  background-color: rgba(255, 59, 63, 0.9);
+}
+
+/* ---------- Quick Links ---------- */
+.quick-links h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #1a1a1a;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quick-links li:hover {
+  background: #2a2a2a;
+}
+
+/* ---------- Sign Out Button ---------- */
+.signout-btn {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.signout-btn:hover {
+  background-color: rgba(255, 59, 63, 0.9);
+}
+
+/* ---------- Loading State ---------- */
+.profile-loading {
+  text-align: center;
+  font-size: 1rem;
+  color: #aaa;
+  margin-top: 2rem;
+}
+
+
+/* Popup backdrop */
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup form container */
+.popup-form {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Title */
+.popup-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Error message */
+.popup-error {
+  color: #ff4d4f;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Input fields */
+.popup-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.popup-input {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+.popup-input::placeholder {
+  color: #aaa;
+}
+
+/* Buttons */
+.popup-btn,
+.google-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.popup-btn {
+  background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+}
+
+.popup-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.popup-btn:hover:not(:disabled) {
+    background-color: #ff0000;
+  /* color: black; */
+}
+
+/* Google button */
+.google-btn {
+  background-color: rgba(255, 59, 63, 0.9);
+  color: #fff;
+ 
+}
+
+.google-btn:hover {
+  background-color: #ff0000;
+   color: white;
+  /* color: black; */
+}
+
+/* Divider */
+.popup-divider {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 1rem 0;
+}

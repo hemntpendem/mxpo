@@ -1,7 +1,8 @@
 "use client";
 
-import ParentPage from "@/app/components/ParentPage";
+import ProfilePage from "@/app/components/MyProfile";
+
 
 export default function Profile() {
-  return <ParentPage />;
+  return <ProfilePage />;
 }

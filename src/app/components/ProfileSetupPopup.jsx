@@ -1,49 +1,86 @@
 "use client";
+
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { signIn } from "next-auth/react";
 
 export default function ProfileSetupPopup({ onSubmit }) {
-  const pathname = usePathname();
-  const [showPopup, setShowPopup] = useState(true);
-
-  // Only appears on homepage
-  if (pathname !== "/" || !showPopup) return null;
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [plan, setPlan] = useState("basic");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleCredentialsSubmit = async (e) => {
     e.preventDefault();
-    if (!username || !email) return alert("Fill all fields");
-    onSubmit({ username, email, plan });
-    setShowPopup(false); // hide after submit
+    setLoading(true);
+    setError("");
+
+    const res = await signIn("credentials", {
+      username,
+      email,
+      redirect: false,
+    });
+
+    setLoading(false);
+
+    if (res?.ok) {
+      onSubmit({ username, email });
+    } else {
+      setError(res?.error || "Login failed. Try again.");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    await signIn("google", { callbackUrl: "/" });
   };
 
   return (
-    <div className="popup-overlay">
-      <div className="popup">
-        {/* Close Button */}
-        <button 
-          type="button" 
-          className="popup-close" 
-          onClick={() => setShowPopup(false)}
+    <AnimatePresence>
+      <motion.div
+        className="popup-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <motion.div
+          className="popup-form"
+          initial={{ scale: 0.85, y: 50, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          exit={{ scale: 0.85, y: 50, opacity: 0 }}
         >
-          ✖
-        </button>
+          <h2 className="popup-title">Set up your Profile</h2>
 
-        <h2>Setup Your Profile</h2>
-        <form onSubmit={handleSubmit}>
-          <input value={username} onChange={(e)=>setUsername(e.target.value)} type="text" placeholder="Username" />
-          <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Email" />
-          <select value={plan} onChange={(e)=>setPlan(e.target.value)}>
-            <option value="basic">Basic</option>
-            <option value="standard">Standard</option>
-            <option value="premium">Premium</option>
-          </select>
-          <button type="submit" className="popup-save">Save Profile</button>
-        </form>
-      </div>
-    </div>
+          {error && <div className="popup-error">{error}</div>}
+
+          <form onSubmit={handleCredentialsSubmit} className="popup-form-fields">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="popup-input"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="popup-input"
+              required
+            />
+            <button type="submit" className="popup-btn" disabled={loading}>
+              {loading ? "Signing in..." : "Save Profile"}
+            </button>
+          </form>
+
+          <div className="popup-divider"><b>or</b></div>
+
+          <button onClick={handleGoogleSignIn} className="google-btn">
+            Continue with Google
+          </button>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

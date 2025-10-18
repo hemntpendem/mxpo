@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"; 
 import BottomNav from "./components/BottomNav";
 import { Toaster } from "react-hot-toast";
+import ClientProvider from "./components/ClientProvider";
 
 export const metadata = {
   title: "MxPo",
@@ -13,24 +14,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased font-mono">
-        <Navbar />      
-        {children}
-        
+        <Navbar />
+
+        {/* Only ClientProvider and its children run on the client */}
+        <ClientProvider>
+          {children}
+        </ClientProvider>
+
         <div className="hidden md:block">
           <Footer />
         </div>
-        
+
         <div className="block md:hidden">
           <BottomNav />
         </div>
-        
+
         <Toaster
           position="bottom-right"
           toastOptions={{
             duration: 3000,
             style: { fontSize: "14px", padding: "12px 16px" },
           }}
-        />  
+        />
       </body>
     </html>
   );

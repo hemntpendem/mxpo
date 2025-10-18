@@ -1,12 +1,19 @@
 "use client";
 
-import React from "react";
+import { useSession, signOut } from "next-auth/react";
 
+export default function ProfilePage() {
+  const { data: session, status } = useSession();
 
-export default function ProfilePage({ user }) {
-  if (!user) return null; // Returns null
+  if (status === "loading") {
+    return <p className="profile-loading">Loading profile...</p>;
+  }
 
-  const { username, plan, } = user; // We won't render email but can use internally
+  if (!session) {
+    return <p className="profile-loading">You are not signed in.</p>;
+  }
+
+  const { name: username, email } = session.user;
 
   return (
     <div className="profile-page">
@@ -16,8 +23,8 @@ export default function ProfilePage({ user }) {
       <div className="membership-card">
         <span className="member-since">Member since November 2024</span>
         <div className="member-info">
-          <h2 className="username">{username}</h2>
-          <p className="plan">{plan.charAt(0).toUpperCase() + plan.slice(1)} plan</p>
+          <h2 className="username">{username || "User"}</h2>
+          {email && <p className="email">{email}</p>}
         </div>
         <button className="manage-btn">Manage membership &rarr;</button>
       </div>
@@ -40,6 +47,13 @@ export default function ProfilePage({ user }) {
           ))}
         </ul>
       </div>
+
+      <button
+        onClick={() => signOut({ callbackUrl: "/" })}
+        className="signout-btn"
+      >
+        Sign Out
+      </button>
     </div>
   );
 }

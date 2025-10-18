@@ -72,7 +72,7 @@ export default function MyListPage() {
                   removeFromList(movie.id);
                 }}
               >
-                Remove
+                UnList
               </button>
             </div>
           );
