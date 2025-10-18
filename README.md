@@ -8,13 +8,16 @@ It also offers interactive features like “Add to List” and browsing by genre
 
 ## Features
 
--  **Search Movies** – Quickly find movies by title.  
--  **Genre Pages** – Browse movies by genre and navigate seamlessly.  
--  **Movie Details** – View cast, ratings, genres, release date, and trailers.  
--  **Add to List** – Save favorite movies for easy access later.  
--  **Responsive Design** – Works smoothly across desktop, tablet, and mobile devices.  
--  **Fast & Modern** – Built with Next.js and Tailwind for speed and clean UI.
-
+- **Search Movies:** Quickly find movies by title.  
+- **Genre Pages:** Browse movies by genre and navigate seamlessly.  
+- **Movie Details:** View cast, ratings, genres, release date, and trailers.  
+- **Add to List:** Save favorite movies for easy access later.  
+- **User Authentication:**  
+  - **Google Sign-In:** Secure login via Firebase Authentication.  
+  - **Credential Login:** Traditional email/password login using NextAuth.  
+  - **Sign-Out Option:** Log out securely after login.  
+- **Responsive Design:** Works smoothly across desktop, tablet, and mobile devices.  
+- **Fast & Modern:** Built with Next.js and Tailwind for speed, clean UI, and smooth user experience.  
 ---
 
 ## Tech Stack
@@ -86,15 +89,18 @@ mxpo/
 
 ## Learnings & Challenges
 
-- Mastered Next.js App Router for dynamic navigation.
 
-- Implemented API integration to fetch and display real-time movie data.
+- Mastered **Next.js App Router** for dynamic navigation.
+ 
+- Implemented **API integration** to fetch and display real-time movie data.
+  
+- Used **TailwindCSS** for fast, responsive design across devices.
+ 
+- Built a **persistent Add to List feature** for saved movies.
 
-- Used TailwindCSS for fast, responsive design across devices.
-
-- Built a persistent Add to List feature for saved movies.
-
-- Improved state management and routing in a real-world project scenario.
+- Integrated **NextAuth** for authentication, including Google Sign-In, credentials login, and secure Sign-Out.
+  
+- Improved **state management and routing** in a real-world project scenario.  
 
 ---
 
@@ -115,7 +121,10 @@ mxpo/
 See MXPO in action across devices – explore, search, and save your favorite movies!
 
 ## On Desktop
-![homepage](https://github.com/user-attachments/assets/8f980a8e-d2a1-4a2e-be8f-f60e9c8cf550)
+![Login Form](src="https://github.com/user-attachments/assets/797cc31d-12f5-4b3c-94c0-96f4d1e5ffda>
+)
+![Homepage](<img width="1920" height="1080" alt="{010D4940-DA4F-42DC-88C2-E7B9CCEEA194}" src="https://github.com/user-attachments/assets/f2b3ec47-98b7-4c14-a4c9-d612192119f2" />
+)
 
 ![Genre page](https://github.com/user-attachments/assets/fd5336f3-8165-442f-b52a-416a4bc56b4c)
 
@@ -131,6 +140,7 @@ See MXPO in action across devices – explore, search, and save your favorite mo
 
 ---
 ## On Mobile
+<img src="https://github.com/user-attachments/assets/8f9764c5-5cb1-4ddf-a315-4d864fd9c31b" alt="Login Form" width="300">
 
 <img src="https://github.com/user-attachments/assets/939f626b-1d5d-4168-baf6-46d8ed4a0d44" alt="Home Page" width="300">
 
@@ -140,7 +150,7 @@ See MXPO in action across devices – explore, search, and save your favorite mo
 
 <img src="https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b" alt="Search Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/2126f5d9-64f3-4062-bd61-0f337549cb7a" alt="Profile Page" width="300">
+<img src="https://github.com/user-attachments/assets/28721c08-7487-419b-87e2-6794b8da9143" alt="Profile Page" width="300">
 
 <img src="https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4" alt="Trailer Modal" width="300">
 
