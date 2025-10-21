@@ -2,6 +2,9 @@
   "name": "mxpo",
   "version": "0.1.0",
   "private": true,
+  "description": "MXPO - Next.js movie platform with authentication, trailers, and cross-device sharing",
+  "author": "hemntpendem <pendemhemant@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
