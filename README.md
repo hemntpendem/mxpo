@@ -150,8 +150,6 @@ See MXPO in action across devices – explore, search, and save your favorite mo
 
 <img src="https://github.com/user-attachments/assets/139c915e-5687-41aa-82fb-6c597407611b" alt="Search Page" width="300">
 
-<img src="https://github.com/user-attachments/assets/28721c08-7487-419b-87e2-6794b8da9143" alt="Profile Page" width="300">
-
 <img src="https://github.com/user-attachments/assets/83133143-61f2-4115-9f76-8389e768fae4" alt="Trailer Modal" width="300">
 
 
