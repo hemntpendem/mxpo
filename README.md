@@ -122,10 +122,9 @@ mxpo/
 See MXPO in action across devices – explore, search, and save your favorite movies!
 
 ## On Desktop
-![Login Form](https://github.com/user-attachments/assets/797cc31d-12f5-4b3c-94c0-96f4d1e5ffda>
-)
-![Homepage](https://github.com/user-attachments/assets/f2b3ec47-98b7-4c14-a4c9-d612192119f2>
-)
+![Login Form](https://github.com/user-attachments/assets/797cc31d-12f5-4b3c-94c0-96f4d1e5ffda)
+
+![Homepage](https://github.com/user-attachments/assets/f2b3ec47-98b7-4c14-a4c9-d612192119f2)
 
 ![Genre page](https://github.com/user-attachments/assets/fd5336f3-8165-442f-b52a-416a4bc56b4c)
 
