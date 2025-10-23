@@ -952,7 +952,9 @@ a {
   padding-bottom: 8px;
   scroll-behavior: smooth;
   cursor: grab;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; 
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 
 .genre-scroll-container:active {

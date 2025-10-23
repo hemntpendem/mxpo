@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import dynamic from "next/dynamic";
@@ -8,8 +8,8 @@ import Image from "next/image";
 
 // 🔹 Lazy load GenreList
 const GenreList = dynamic(() => import("@/app/components/GenreList"), {
-  ssr: false, 
-  loading: () => <p style={{ color: "#fff" }}>Loading genre...</p>, 
+  ssr: false,
+  loading: () => <p style={{ color: "#fff" }}>Loading genre...</p>,
 });
 
 const GENRES = [
@@ -106,24 +106,23 @@ export default function GenrePage() {
           value={selectedGenre || ""}
           onChange={(e) => setSelectedGenre(e.target.value)}
           style={{
-  padding: "10px 40px 10px 14px",
-  border: "none",
-  borderRadius: "10px",
-  backgroundColor: "#1c1c1c",
-  color: "#f5f5f5",
-  fontSize: "15px",
-  fontWeight: "500",
-  cursor: "pointer",
-  outline: "none",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
-  transition: "all 0.2s ease",
-  appearance: "none",
-  backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23aaa' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "right 12px center",
-  backgroundSize: "12px",
-}}
-
+            padding: "10px 40px 10px 14px",
+            border: "none",
+            borderRadius: "10px",
+            backgroundColor: "#1c1c1c",
+            color: "#f5f5f5",
+            fontSize: "15px",
+            fontWeight: "500",
+            cursor: "pointer",
+            outline: "none",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
+            transition: "all 0.2s ease",
+            appearance: "none",
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='%23aaa' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 12px center",
+            backgroundSize: "12px",
+          }}
         >
           <option value="">All</option>
           {GENRES.map((genre) => (
@@ -145,10 +144,73 @@ export default function GenrePage() {
       ) : (
         GENRES.map((genre) => {
           const isLoading = loadingGenres[genre.name] || !movies[genre.name];
+
+          // Ref for carousel drag
+          const scrollRef = useRef(null);
+
+          useEffect(() => {
+            const slider = scrollRef.current;
+            if (!slider) return;
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let velocity = 0;
+            let momentumID;
+
+            const mouseDown = (e) => {
+              isDown = true;
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+              cancelAnimationFrame(momentumID);
+            };
+
+            const mouseLeave = () => {
+              isDown = false;
+              applyMomentum();
+            };
+
+            const mouseUp = () => {
+              isDown = false;
+              applyMomentum();
+            };
+
+            const mouseMove = (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2; // scroll-fast factor
+              const prevScroll = slider.scrollLeft;
+              slider.scrollLeft = scrollLeft - walk;
+              velocity = slider.scrollLeft - prevScroll;
+            };
+
+            const applyMomentum = () => {
+              if (Math.abs(velocity) > 0.5) {
+                slider.scrollLeft += velocity;
+                velocity *= 0.95; // friction
+                momentumID = requestAnimationFrame(applyMomentum);
+              }
+            };
+
+            slider.addEventListener("mousedown", mouseDown);
+            slider.addEventListener("mouseleave", mouseLeave);
+            slider.addEventListener("mouseup", mouseUp);
+            slider.addEventListener("mousemove", mouseMove);
+
+            return () => {
+              slider.removeEventListener("mousedown", mouseDown);
+              slider.removeEventListener("mouseleave", mouseLeave);
+              slider.removeEventListener("mouseup", mouseUp);
+              slider.removeEventListener("mousemove", mouseMove);
+              cancelAnimationFrame(momentumID);
+            };
+          }, []);
+
           return (
             <div key={genre.id} className="genre-section">
               <h2 className="genre-title">{genre.name}</h2>
-              <div className="genre-scroll-container">
+              <div className="genre-scroll-container" ref={scrollRef}>
                 {isLoading
                   ? Array.from({ length: 10 }).map((_, i) => (
                       <div key={i} className="genre-movie-card skeleton-card">
