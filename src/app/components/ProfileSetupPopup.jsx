@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { signIn } from "next-auth/react";
+import toast from "react-hot-toast"; 
 
 export default function ProfileSetupPopup({ onSubmit }) {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ export default function ProfileSetupPopup({ onSubmit }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // Credentials login handler
   const handleCredentialsSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -24,14 +26,23 @@ export default function ProfileSetupPopup({ onSubmit }) {
     setLoading(false);
 
     if (res?.ok) {
+      toast.success("Logged in successfully!"); 
       onSubmit({ username, email });
     } else {
+      toast.error(res?.error || "Login failed. Try again.");
       setError(res?.error || "Login failed. Try again.");
     }
   };
 
+  // Google login handler
   const handleGoogleSignIn = async () => {
-    await signIn("google", { callbackUrl: "/" });
+    const result = await signIn("google", { redirect: false });
+    if (result?.ok) {
+      toast.success("Google login successful!"); 
+      
+    } else {
+      toast.error("Google login failed."); 
+    }
   };
 
   return (
